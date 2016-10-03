@@ -8,20 +8,11 @@
 
     <!-- NOTE: EditTextPreference accepts EditText attributes. -->
     <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
-    <EditTextPreference
-        android:capitalize="words"
-        android:defaultValue="@string/pref_default_display_name"
-        android:inputType="textCapWords"
-        android:key="displayname"
-        android:maxLines="1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="@string/pref_title_display_name" />#
 
     <EditTextPreference
-        android:defaultValue="20"
-        android:inputType="number"
-        android:key="number_of_cycles"
+        android:defaultValue="192.168.1.11"
+        android:inputType="text"
+        android:key="target_ip_address"
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"

@@ -15,9 +15,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -27,14 +27,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import de.hszemi.sensorid_test.R;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -47,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private int counter = -1;
     private int numberOfLoops = 20;
     private TextView mTextCounter;
+    private EditText mEditText;
 
 
     @Override
@@ -61,8 +58,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mSensors = new LinkedList<>();
         mAllSensors = new LinkedList<>();
         mLogmap = new HashMap<>();
-        final EditText editText = (EditText) findViewById(R.id.editText);
-        mTextCounter = (TextView) findViewById(R.id.textCounter);
+        mEditText = (EditText) findViewById(R.id.editText);
 
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -75,16 +71,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                 Sensor s = (Sensor) parent.getItemAtPosition(position);
                 Log.d("clicked", s.toString());
-                gatherSensorData(s, view, editText.getText().toString());
+                gatherSensorData(s, view, mEditText.getText().toString());
             }
         });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                //vibrateAndRecordAcceleration(view, editText.getText().toString());
+        if(fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    //vibrateAndRecordAcceleration(view, editText.getText().toString());
 
 //                numberOfLoops = Integer.parseInt(sharedPref.getString(SettingsActivity.KEY_NUMBER_OF_CYCLES, "20"));
 //
@@ -107,15 +104,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 //                    }
 //                }
 
-                Context context = getApplicationContext();
-                CharSequence text = "I DO NOTHING!";
-                int duration = Toast.LENGTH_SHORT;
+                    Context context = getApplicationContext();
+                    CharSequence text = "I DO NOTHING!";
+                    int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
 
-            }
-        });
+                }
+            });
+        }
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> sensors = mSensorManager.getSensorList(Sensor.TYPE_ALL);
@@ -140,8 +138,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             Snackbar.make(view, "Do not doubl touch plz", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else {
-            String display_name = sharedPref.getString(SettingsActivity.KEY_DISPLAY_NAME, "John Doe");
-            mLogmap.put(s.getName(), SensorData.SensorDataMessage.newBuilder().setDisplayname(display_name).setSensorname(s.getName()));
+
+            Context context = getApplicationContext();
+            CharSequence text = "Gathering data for 5s";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
+            mLogmap.put(s.getName(), SensorData.SensorDataMessage.newBuilder().setDisplayname("DUMMY_DISPLAY_NAME").setSensorname(s.getName()));
             mSensorManager.registerListener((MainActivity) view.getContext(), s, SensorManager.SENSOR_DELAY_FASTEST);
 
             Handler handler = new Handler();
@@ -208,6 +213,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         fv.setRmsamplitudeY(Features.rmsamplitude(data, "y"));
         fv.setRmsamplitudeZ(Features.rmsamplitude(data, "z"));
 
+        fv.setCount(data.size());
+
         return fv;
 
 
@@ -216,22 +223,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private List<Map<String, Double>> transformSensorDataMessage(SensorData.SensorDataMessage sdm) {
         List<Map<String, Double>> data = new ArrayList<>();
 
-        long initialTimestamp = sdm.getSensorreading(0).getTimestamp();
+        if(sdm.getSensorreadingCount() > 0) {
+            long initialTimestamp = sdm.getSensorreading(0).getTimestamp();
+            for(SensorData.SensorReading reading : sdm.getSensorreadingList()){
+                long timestamp = reading.getTimestamp() - initialTimestamp;
+                double x = reading.getX();
+                double y = reading.getY();
+                double z = reading.getZ();
 
-        for(SensorData.SensorReading reading : sdm.getSensorreadingList()){
-            long timestamp = reading.getTimestamp() - initialTimestamp;
-            double x = reading.getX();
-            double y = reading.getY();
-            double z = reading.getZ();
-
-            Map<String, Double> dict = new HashMap<String, Double>();
-            dict.put("timestamp", (double) timestamp);
-            dict.put("x", x);
-            dict.put("y", y);
-            dict.put("z", z);
-            data.add(dict);
+                Map<String, Double> dict = new HashMap<String, Double>();
+                dict.put("timestamp", (double) timestamp);
+                dict.put("x", x);
+                dict.put("y", y);
+                dict.put("z", z);
+                data.add(dict);
+            }
         }
-
         return data;
     }
 
@@ -271,7 +278,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 //        for (Sensor s : mAccelerometers) {
 //            mSensorManager.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
 //        }
-    }
+        if(mEditText != null){
+            mEditText.setText(sharedPref.getString(SettingsActivity.KEY_TARGET_IP_ADDRESS, "192.168.1.11"));
+        }}
 
     @Override
     protected void onPause() {

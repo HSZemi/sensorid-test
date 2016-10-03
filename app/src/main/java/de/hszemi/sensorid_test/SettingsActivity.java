@@ -42,8 +42,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      */
 
 
-    static final String KEY_DISPLAY_NAME = "displayname";
-    static final String KEY_NUMBER_OF_CYCLES = "number_of_cycles";
+    static final String KEY_TARGET_IP_ADDRESS = "target_ip_address";
 
     private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
@@ -183,14 +182,15 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference(KEY_DISPLAY_NAME));
+            bindPreferenceSummaryToValue(findPreference(KEY_TARGET_IP_ADDRESS));
         }
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             int id = item.getItemId();
             if (id == android.R.id.home) {
-                startActivity(new Intent(getActivity(), SettingsActivity.class));
+                getActivity().finish();
+                //startActivity(new Intent(getActivity(), SettingsActivity.class));
                 return true;
             }
             return super.onOptionsItemSelected(item);

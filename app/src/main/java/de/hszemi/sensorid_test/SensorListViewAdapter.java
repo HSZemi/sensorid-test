@@ -41,7 +41,7 @@ public class SensorListViewAdapter extends ArrayAdapter<Sensor> {
             tvName.setText(sensor.getName());
             tvType.setText(SensorHelper.type2string(sensor.getType()));
             if(SensorHelper.activeSensors.contains(SensorHelper.type2string(sensor.getType()))){
-                outerLayout.setBackgroundColor(0xaa59b159);
+                outerLayout.setBackgroundColor(0xaaffdd55);
             } else {
                 outerLayout.setBackgroundColor(0x00000000);
             }

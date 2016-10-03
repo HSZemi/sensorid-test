@@ -14,7 +14,8 @@
         <activity
             android:name="de.hszemi.sensorid_test.MainActivity"
             android:label="Sensorid-test"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateUnchanged">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,7 @@ package de.hszemi.sensorid_test;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -39,12 +40,15 @@ public class DataReporter extends AsyncTask<Void, Void, String> {
             serializedData.writeDelimitedTo(os);
             response = TestData.TestResult.parseDelimitedFrom(is);
 
-            Log.d("RESULT", response.getResultDisplayname());
-
             is.close();
             os.close();
             socket.close();
-            return response.getResultDisplayname();
+            if(response == null){
+                return "ERROR_RESPONSE_WAS_NULL";
+            } else {
+                Log.d("RESULT", response.getResultDisplayname());
+                return response.getResultDisplayname();
+            }
 
         } catch (UnknownHostException e) {
             e.printStackTrace();
@@ -64,7 +68,7 @@ public class DataReporter extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String retval){
-        int duration = Toast.LENGTH_SHORT;
+        int duration = Toast.LENGTH_LONG;
 
         Toast toast = Toast.makeText(context, retval, duration);
         toast.show();

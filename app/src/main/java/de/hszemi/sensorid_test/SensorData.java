@@ -9,7 +9,7 @@ public final class SensorData {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   public interface SensorDataMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorid.SensorDataMessage)
+      // @@protoc_insertion_point(interface_extends:sensorid_test.SensorDataMessage)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -41,35 +41,35 @@ public final class SensorData {
         getSensornameBytes();
 
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     java.util.List<de.hszemi.sensorid_test.SensorData.SensorReading> 
         getSensorreadingList();
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     de.hszemi.sensorid_test.SensorData.SensorReading getSensorreading(int index);
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     int getSensorreadingCount();
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     java.util.List<? extends de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder> 
         getSensorreadingOrBuilderList();
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder getSensorreadingOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code sensorid.SensorDataMessage}
+   * Protobuf type {@code sensorid_test.SensorDataMessage}
    */
   public static final class SensorDataMessage extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:sensorid.SensorDataMessage)
+      // @@protoc_insertion_point(message_implements:sensorid_test.SensorDataMessage)
       SensorDataMessageOrBuilder {
     // Use SensorDataMessage.newBuilder() to construct.
     private SensorDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -153,12 +153,12 @@ public final class SensorData {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorDataMessage_descriptor;
+      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorDataMessage_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorDataMessage_fieldAccessorTable
+      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorDataMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               de.hszemi.sensorid_test.SensorData.SensorDataMessage.class, de.hszemi.sensorid_test.SensorData.SensorDataMessage.Builder.class);
     }
@@ -266,32 +266,32 @@ public final class SensorData {
     public static final int SENSORREADING_FIELD_NUMBER = 3;
     private java.util.List<de.hszemi.sensorid_test.SensorData.SensorReading> sensorreading_;
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     public java.util.List<de.hszemi.sensorid_test.SensorData.SensorReading> getSensorreadingList() {
       return sensorreading_;
     }
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     public java.util.List<? extends de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder> 
         getSensorreadingOrBuilderList() {
       return sensorreading_;
     }
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     public int getSensorreadingCount() {
       return sensorreading_.size();
     }
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     public de.hszemi.sensorid_test.SensorData.SensorReading getSensorreading(int index) {
       return sensorreading_.get(index);
     }
     /**
-     * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+     * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
      */
     public de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder getSensorreadingOrBuilder(
         int index) {
@@ -439,20 +439,20 @@ public final class SensorData {
       return builder;
     }
     /**
-     * Protobuf type {@code sensorid.SensorDataMessage}
+     * Protobuf type {@code sensorid_test.SensorDataMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorid.SensorDataMessage)
+        // @@protoc_insertion_point(builder_implements:sensorid_test.SensorDataMessage)
         de.hszemi.sensorid_test.SensorData.SensorDataMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorDataMessage_descriptor;
+        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorDataMessage_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorDataMessage_fieldAccessorTable
+        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorDataMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 de.hszemi.sensorid_test.SensorData.SensorDataMessage.class, de.hszemi.sensorid_test.SensorData.SensorDataMessage.Builder.class);
       }
@@ -497,7 +497,7 @@ public final class SensorData {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorDataMessage_descriptor;
+        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorDataMessage_descriptor;
       }
 
       public de.hszemi.sensorid_test.SensorData.SensorDataMessage getDefaultInstanceForType() {
@@ -791,7 +791,7 @@ public final class SensorData {
           de.hszemi.sensorid_test.SensorData.SensorReading, de.hszemi.sensorid_test.SensorData.SensorReading.Builder, de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder> sensorreadingBuilder_;
 
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public java.util.List<de.hszemi.sensorid_test.SensorData.SensorReading> getSensorreadingList() {
         if (sensorreadingBuilder_ == null) {
@@ -801,7 +801,7 @@ public final class SensorData {
         }
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public int getSensorreadingCount() {
         if (sensorreadingBuilder_ == null) {
@@ -811,7 +811,7 @@ public final class SensorData {
         }
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public de.hszemi.sensorid_test.SensorData.SensorReading getSensorreading(int index) {
         if (sensorreadingBuilder_ == null) {
@@ -821,7 +821,7 @@ public final class SensorData {
         }
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder setSensorreading(
           int index, de.hszemi.sensorid_test.SensorData.SensorReading value) {
@@ -838,7 +838,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder setSensorreading(
           int index, de.hszemi.sensorid_test.SensorData.SensorReading.Builder builderForValue) {
@@ -852,7 +852,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder addSensorreading(de.hszemi.sensorid_test.SensorData.SensorReading value) {
         if (sensorreadingBuilder_ == null) {
@@ -868,7 +868,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder addSensorreading(
           int index, de.hszemi.sensorid_test.SensorData.SensorReading value) {
@@ -885,7 +885,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder addSensorreading(
           de.hszemi.sensorid_test.SensorData.SensorReading.Builder builderForValue) {
@@ -899,7 +899,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder addSensorreading(
           int index, de.hszemi.sensorid_test.SensorData.SensorReading.Builder builderForValue) {
@@ -913,7 +913,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder addAllSensorreading(
           java.lang.Iterable<? extends de.hszemi.sensorid_test.SensorData.SensorReading> values) {
@@ -928,7 +928,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder clearSensorreading() {
         if (sensorreadingBuilder_ == null) {
@@ -941,7 +941,7 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public Builder removeSensorreading(int index) {
         if (sensorreadingBuilder_ == null) {
@@ -954,14 +954,14 @@ public final class SensorData {
         return this;
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public de.hszemi.sensorid_test.SensorData.SensorReading.Builder getSensorreadingBuilder(
           int index) {
         return getSensorreadingFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder getSensorreadingOrBuilder(
           int index) {
@@ -971,7 +971,7 @@ public final class SensorData {
         }
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public java.util.List<? extends de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder> 
            getSensorreadingOrBuilderList() {
@@ -982,14 +982,14 @@ public final class SensorData {
         }
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public de.hszemi.sensorid_test.SensorData.SensorReading.Builder addSensorreadingBuilder() {
         return getSensorreadingFieldBuilder().addBuilder(
             de.hszemi.sensorid_test.SensorData.SensorReading.getDefaultInstance());
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public de.hszemi.sensorid_test.SensorData.SensorReading.Builder addSensorreadingBuilder(
           int index) {
@@ -997,7 +997,7 @@ public final class SensorData {
             index, de.hszemi.sensorid_test.SensorData.SensorReading.getDefaultInstance());
       }
       /**
-       * <code>repeated .sensorid.SensorReading sensorreading = 3;</code>
+       * <code>repeated .sensorid_test.SensorReading sensorreading = 3;</code>
        */
       public java.util.List<de.hszemi.sensorid_test.SensorData.SensorReading.Builder> 
            getSensorreadingBuilderList() {
@@ -1018,7 +1018,7 @@ public final class SensorData {
         return sensorreadingBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:sensorid.SensorDataMessage)
+      // @@protoc_insertion_point(builder_scope:sensorid_test.SensorDataMessage)
     }
 
     static {
@@ -1026,11 +1026,11 @@ public final class SensorData {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:sensorid.SensorDataMessage)
+    // @@protoc_insertion_point(class_scope:sensorid_test.SensorDataMessage)
   }
 
   public interface SensorReadingOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorid.SensorReading)
+      // @@protoc_insertion_point(interface_extends:sensorid_test.SensorReading)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1070,11 +1070,11 @@ public final class SensorData {
     float getZ();
   }
   /**
-   * Protobuf type {@code sensorid.SensorReading}
+   * Protobuf type {@code sensorid_test.SensorReading}
    */
   public static final class SensorReading extends
       com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:sensorid.SensorReading)
+      // @@protoc_insertion_point(message_implements:sensorid_test.SensorReading)
       SensorReadingOrBuilder {
     // Use SensorReading.newBuilder() to construct.
     private SensorReading(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
@@ -1155,12 +1155,12 @@ public final class SensorData {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorReading_descriptor;
+      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorReading_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorReading_fieldAccessorTable
+      return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorReading_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               de.hszemi.sensorid_test.SensorData.SensorReading.class, de.hszemi.sensorid_test.SensorData.SensorReading.Builder.class);
     }
@@ -1384,20 +1384,20 @@ public final class SensorData {
       return builder;
     }
     /**
-     * Protobuf type {@code sensorid.SensorReading}
+     * Protobuf type {@code sensorid_test.SensorReading}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorid.SensorReading)
+        // @@protoc_insertion_point(builder_implements:sensorid_test.SensorReading)
         de.hszemi.sensorid_test.SensorData.SensorReadingOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorReading_descriptor;
+        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorReading_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorReading_fieldAccessorTable
+        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorReading_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 de.hszemi.sensorid_test.SensorData.SensorReading.class, de.hszemi.sensorid_test.SensorData.SensorReading.Builder.class);
       }
@@ -1439,7 +1439,7 @@ public final class SensorData {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_SensorReading_descriptor;
+        return de.hszemi.sensorid_test.SensorData.internal_static_sensorid_test_SensorReading_descriptor;
       }
 
       public de.hszemi.sensorid_test.SensorData.SensorReading getDefaultInstanceForType() {
@@ -1665,7 +1665,7 @@ public final class SensorData {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:sensorid.SensorReading)
+      // @@protoc_insertion_point(builder_scope:sensorid_test.SensorReading)
     }
 
     static {
@@ -1673,19 +1673,19 @@ public final class SensorData {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:sensorid.SensorReading)
+    // @@protoc_insertion_point(class_scope:sensorid_test.SensorReading)
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorid_SensorDataMessage_descriptor;
+    internal_static_sensorid_test_SensorDataMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_sensorid_SensorDataMessage_fieldAccessorTable;
+      internal_static_sensorid_test_SensorDataMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorid_SensorReading_descriptor;
+    internal_static_sensorid_test_SensorReading_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_sensorid_SensorReading_fieldAccessorTable;
+      internal_static_sensorid_test_SensorReading_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1695,12 +1695,13 @@ public final class SensorData {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020SensorData.proto\022\010sensorid\"l\n\021SensorDa" +
-      "taMessage\022\023\n\013displayname\030\001 \002(\t\022\022\n\nsensor" +
-      "name\030\002 \002(\t\022.\n\rsensorreading\030\003 \003(\0132\027.sens" +
-      "orid.SensorReading\"C\n\rSensorReading\022\021\n\tt" +
-      "imestamp\030\001 \002(\003\022\t\n\001x\030\002 \002(\002\022\t\n\001y\030\003 \001(\002\022\t\n\001" +
-      "z\030\004 \001(\002B\024\n\022de.hszemi.sensorid"
+      "\n\020SensorData.proto\022\rsensorid_test\"q\n\021Sen" +
+      "sorDataMessage\022\023\n\013displayname\030\001 \002(\t\022\022\n\ns" +
+      "ensorname\030\002 \002(\t\0223\n\rsensorreading\030\003 \003(\0132\034" +
+      ".sensorid_test.SensorReading\"C\n\rSensorRe" +
+      "ading\022\021\n\ttimestamp\030\001 \002(\003\022\t\n\001x\030\002 \002(\002\022\t\n\001y" +
+      "\030\003 \001(\002\022\t\n\001z\030\004 \001(\002B\031\n\027de.hszemi.sensorid_" +
+      "test"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1714,17 +1715,17 @@ public final class SensorData {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_sensorid_SensorDataMessage_descriptor =
+    internal_static_sensorid_test_SensorDataMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_sensorid_SensorDataMessage_fieldAccessorTable = new
+    internal_static_sensorid_test_SensorDataMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_sensorid_SensorDataMessage_descriptor,
+        internal_static_sensorid_test_SensorDataMessage_descriptor,
         new java.lang.String[] { "Displayname", "Sensorname", "Sensorreading", });
-    internal_static_sensorid_SensorReading_descriptor =
+    internal_static_sensorid_test_SensorReading_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_sensorid_SensorReading_fieldAccessorTable = new
+    internal_static_sensorid_test_SensorReading_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_sensorid_SensorReading_descriptor,
+        internal_static_sensorid_test_SensorReading_descriptor,
         new java.lang.String[] { "Timestamp", "X", "Y", "Z", });
   }
 

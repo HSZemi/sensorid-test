@@ -23,17 +23,18 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="-1"
-                android:id="@+id/textCounter"
+                android:id="@+id/imageView"
+                android:layout_alignParentBottom="false"
                 android:layout_alignParentRight="true"
-                android:height="50dip"
-                android:width="50dip"
-                android:textStyle="bold"
-                android:textAlignment="center" />
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/ic_launcher"
+                android:maxHeight="50dip"
+                android:maxWidth="50dip"
+                android:layout_alignParentTop="true" />
 
             <EditText
                 android:layout_width="fill_parent"
@@ -44,10 +45,9 @@
                 android:layout_alignParentStart="false"
                 android:text="172.16.1.100"
                 android:layout_alignParentTop="false"
-                android:layout_toLeftOf="@id/textCounter"
-                android:layout_toStartOf="@id/textCounter"
                 android:inputType="textUri"
-                android:height="50dip" />
+                android:height="50dip"
+                android:layout_toLeftOf="@+id/imageView" />
 
 
         </RelativeLayout>

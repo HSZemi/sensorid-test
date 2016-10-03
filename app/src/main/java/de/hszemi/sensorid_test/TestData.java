@@ -255,6 +255,15 @@ public final class TestData {
      * <code>required double rmsamplitude_z = 26;</code>
      */
     double getRmsamplitudeZ();
+
+    /**
+     * <code>required double count = 27;</code>
+     */
+    boolean hasCount();
+    /**
+     * <code>required double count = 27;</code>
+     */
+    double getCount();
   }
   /**
    * Protobuf type {@code sensorid.FeatureVector}
@@ -438,6 +447,11 @@ public final class TestData {
             case 209: {
               bitField0_ |= 0x02000000;
               rmsamplitudeZ_ = input.readDouble();
+              break;
+            }
+            case 217: {
+              bitField0_ |= 0x04000000;
+              count_ = input.readDouble();
               break;
             }
           }
@@ -924,6 +938,21 @@ public final class TestData {
       return rmsamplitudeZ_;
     }
 
+    public static final int COUNT_FIELD_NUMBER = 27;
+    private double count_;
+    /**
+     * <code>required double count = 27;</code>
+     */
+    public boolean hasCount() {
+      return ((bitField0_ & 0x04000000) == 0x04000000);
+    }
+    /**
+     * <code>required double count = 27;</code>
+     */
+    public double getCount() {
+      return count_;
+    }
+
     private void initFields() {
       sensortype_ = "";
       sensorname_ = "";
@@ -951,6 +980,7 @@ public final class TestData {
       rmsamplitudeX_ = 0D;
       rmsamplitudeY_ = 0D;
       rmsamplitudeZ_ = 0D;
+      count_ = 0D;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1062,6 +1092,10 @@ public final class TestData {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -1146,6 +1180,9 @@ public final class TestData {
       }
       if (((bitField0_ & 0x02000000) == 0x02000000)) {
         output.writeDouble(26, rmsamplitudeZ_);
+      }
+      if (((bitField0_ & 0x04000000) == 0x04000000)) {
+        output.writeDouble(27, count_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1259,6 +1296,10 @@ public final class TestData {
       if (((bitField0_ & 0x02000000) == 0x02000000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(26, rmsamplitudeZ_);
+      }
+      if (((bitField0_ & 0x04000000) == 0x04000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(27, count_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1429,6 +1470,8 @@ public final class TestData {
         bitField0_ = (bitField0_ & ~0x01000000);
         rmsamplitudeZ_ = 0D;
         bitField0_ = (bitField0_ & ~0x02000000);
+        count_ = 0D;
+        bitField0_ = (bitField0_ & ~0x04000000);
         return this;
       }
 
@@ -1561,6 +1604,10 @@ public final class TestData {
           to_bitField0_ |= 0x02000000;
         }
         result.rmsamplitudeZ_ = rmsamplitudeZ_;
+        if (((from_bitField0_ & 0x04000000) == 0x04000000)) {
+          to_bitField0_ |= 0x04000000;
+        }
+        result.count_ = count_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1658,6 +1705,9 @@ public final class TestData {
         }
         if (other.hasRmsamplitudeZ()) {
           setRmsamplitudeZ(other.getRmsamplitudeZ());
+        }
+        if (other.hasCount()) {
+          setCount(other.getCount());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1765,6 +1815,10 @@ public final class TestData {
           return false;
         }
         if (!hasRmsamplitudeZ()) {
+          
+          return false;
+        }
+        if (!hasCount()) {
           
           return false;
         }
@@ -2710,6 +2764,38 @@ public final class TestData {
         return this;
       }
 
+      private double count_ ;
+      /**
+       * <code>required double count = 27;</code>
+       */
+      public boolean hasCount() {
+        return ((bitField0_ & 0x04000000) == 0x04000000);
+      }
+      /**
+       * <code>required double count = 27;</code>
+       */
+      public double getCount() {
+        return count_;
+      }
+      /**
+       * <code>required double count = 27;</code>
+       */
+      public Builder setCount(double value) {
+        bitField0_ |= 0x04000000;
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required double count = 27;</code>
+       */
+      public Builder clearCount() {
+        bitField0_ = (bitField0_ & ~0x04000000);
+        count_ = 0D;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:sensorid.FeatureVector)
     }
 
@@ -3224,7 +3310,7 @@ public final class TestData {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016TestData.proto\022\010sensorid\"\355\003\n\rFeatureVe" +
+      "\n\016TestData.proto\022\010sensorid\"\374\003\n\rFeatureVe" +
       "ctor\022\022\n\nsensortype\030\001 \002(\t\022\022\n\nsensorname\030\002" +
       " \002(\t\022\016\n\006mean_x\030\003 \002(\001\022\016\n\006mean_y\030\004 \002(\001\022\016\n\006" +
       "mean_z\030\005 \002(\001\022\r\n\005min_x\030\006 \002(\001\022\r\n\005min_y\030\007 \002" +
@@ -3237,8 +3323,9 @@ public final class TestData {
       "is_x\030\025 \002(\001\022\022\n\nkurtosis_y\030\026 \002(\001\022\022\n\nkurtos" +
       "is_z\030\027 \002(\001\022\026\n\016rmsamplitude_x\030\030 \002(\001\022\026\n\016rm" +
       "samplitude_y\030\031 \002(\001\022\026\n\016rmsamplitude_z\030\032 \002" +
-      "(\001\"(\n\nTestResult\022\032\n\022result_displayname\030\001" +
-      " \002(\tB\031\n\027de.hszemi.sensorid_test"
+      "(\001\022\r\n\005count\030\033 \002(\001\"(\n\nTestResult\022\032\n\022resul" +
+      "t_displayname\030\001 \002(\tB\031\n\027de.hszemi.sensori" +
+      "d_test"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3257,7 +3344,7 @@ public final class TestData {
     internal_static_sensorid_FeatureVector_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_sensorid_FeatureVector_descriptor,
-        new java.lang.String[] { "Sensortype", "Sensorname", "MeanX", "MeanY", "MeanZ", "MinX", "MinY", "MinZ", "MaxX", "MaxY", "MaxZ", "StddevX", "StddevY", "StddevZ", "AvgdevX", "AvgdevY", "AvgdevZ", "SkewnessX", "SkewnessY", "SkewnessZ", "KurtosisX", "KurtosisY", "KurtosisZ", "RmsamplitudeX", "RmsamplitudeY", "RmsamplitudeZ", });
+        new java.lang.String[] { "Sensortype", "Sensorname", "MeanX", "MeanY", "MeanZ", "MinX", "MinY", "MinZ", "MaxX", "MaxY", "MaxZ", "StddevX", "StddevY", "StddevZ", "AvgdevX", "AvgdevY", "AvgdevZ", "SkewnessX", "SkewnessY", "SkewnessZ", "KurtosisX", "KurtosisY", "KurtosisZ", "RmsamplitudeX", "RmsamplitudeY", "RmsamplitudeZ", "Count", });
     internal_static_sensorid_TestResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_sensorid_TestResult_fieldAccessorTable = new

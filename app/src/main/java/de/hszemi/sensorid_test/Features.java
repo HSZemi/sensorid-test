@@ -88,6 +88,10 @@ public class Features {
 
     public static double lowest(List<Map<String, Double>> data, String index){
 
+        if(data.size() < 1){
+            return 0;
+        }
+
         double val = data.get(0).get(index);
 
         for (Map<String, Double> x: data) {
@@ -98,6 +102,10 @@ public class Features {
     }
 
     public static double highest(List<Map<String, Double>> data, String index){
+
+        if(data.size() < 1){
+            return 0;
+        }
 
         double val = data.get(0).get(index);
 
