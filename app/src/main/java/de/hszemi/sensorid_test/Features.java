@@ -4,10 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by zemanek on 03.10.16.
+ * This class provides methods for computing features
  */
 public class Features {
 
+    /**
+     * Compute the mean of data[:][index]
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @return the mean of the values at index index of all maps in data
+     */
     public static double mean(List<Map<String, Double>> data, String index){
 
         double m = 0;
@@ -19,6 +25,13 @@ public class Features {
         return m / data.size();
     }
 
+    /**
+     *
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @param mean the mean, calculated by mean()
+     * @return the standard deviation of the values at index index of all maps in data
+     */
     public static double stddev(List<Map<String, Double>> data, String index, double mean){
 
         double val = 0;
@@ -32,7 +45,13 @@ public class Features {
         return Math.sqrt(val);
     }
 
-
+    /**
+     *
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @param mean the mean, calculated by mean()
+     * @return the average deviation of the values at index index of all maps in data
+     */
     public static double avgdev(List<Map<String, Double>> data, String index, double mean){
 
         double val = 0;
@@ -44,6 +63,14 @@ public class Features {
         return val / data.size();
     }
 
+    /**
+     *
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @param mean the mean, calculated by mean()
+     * @param stddev the stddev, calculated by stddev()
+     * @return the skewness of the values at index index of all maps in data
+     */
     public static double skewness(List<Map<String, Double>> data, String index, double mean, double stddev){
         if(stddev == 0.0){
             return 0;
@@ -58,7 +85,14 @@ public class Features {
         return val / data.size();
     }
 
-
+    /**
+     *
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @param mean the mean, calculated by mean()
+     * @param stddev the stddev, calculated by stddev()
+     * @return The kurtosis of the values at index index of all maps in data
+     */
     public static double kurtosis(List<Map<String, Double>> data, String index, double mean, double stddev){
         if(stddev == 0.0){
             return 0;
@@ -73,6 +107,12 @@ public class Features {
         return val / data.size();
     }
 
+    /**
+     *
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @return The root mean square amplitude of the values at index index of all maps in data
+     */
     public static double rmsamplitude(List<Map<String, Double>> data, String index){
 
         double val = 0;
@@ -86,6 +126,12 @@ public class Features {
         return Math.sqrt(val);
     }
 
+    /**
+     *
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @return The minimum value of all values at index index of all maps in data
+     */
     public static double lowest(List<Map<String, Double>> data, String index){
 
         if(data.size() < 1){
@@ -101,6 +147,12 @@ public class Features {
         return val;
     }
 
+    /**
+     *
+     * @param data the data as a list of maps
+     * @param index the index to be accessed in each map
+     * @return The maximum value of all values at index index of all maps in data
+     */
     public static double highest(List<Map<String, Double>> data, String index){
 
         if(data.size() < 1){

@@ -7,11 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by zemanek on 22.09.16.
+ * This class provides auxiliary data and methods for managing sensor data and display.
  */
 
 public class SensorHelper {
 
+    // The list of sensor types we selected for further inspection
     public static Set<String> activeSensors = new HashSet<String>(Arrays.asList("TYPE_ACCELEROMETER","TYPE_GAME_ROTATION_VECTOR",
             "TYPE_GEOMAGNETIC_ROTATION_VECTOR","TYPE_GRAVITY","TYPE_GYROSCOPE",
             "TYPE_GYROSCOPE_UNCALIBRATED","TYPE_LINEAR_ACCELERATION","TYPE_MAGNETIC_FIELD","TYPE_PRESSURE",

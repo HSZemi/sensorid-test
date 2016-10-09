@@ -3,6 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_settings">Settings</string>
 
+    <string name="help_text"><b>Tap a sensor below</b> to collect 5s of data and have it classified by the server above!</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->

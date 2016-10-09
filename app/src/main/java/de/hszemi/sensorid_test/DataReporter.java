@@ -13,7 +13,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * Created by zemanek on 30.06.16.
+ * DataReporter sends a FeatureVector to the target host and receives
+ * a TestResult that it then displays to the user.
  */
 public class DataReporter extends AsyncTask<Void, Void, String> {
     private TestData.FeatureVector serializedData;
@@ -37,7 +38,10 @@ public class DataReporter extends AsyncTask<Void, Void, String> {
             OutputStream os = socket.getOutputStream();
             InputStream is = socket.getInputStream();
 
+            // first we send the FeatureVector…
             serializedData.writeDelimitedTo(os);
+
+            //…then we receive the TestData answer.
             response = TestData.TestResult.parseDelimitedFrom(is);
 
             is.close();
@@ -63,15 +67,17 @@ public class DataReporter extends AsyncTask<Void, Void, String> {
                 }
             }
         }
-        return "NO_RESULT";
+        // If we reach this part of the code, an exception occurred.
+        // Probably the host did not respond.
+        return "NO_RESULT\nIs the server even running?";
     }
 
     @Override
     protected void onPostExecute(String retval){
-        int duration = Toast.LENGTH_LONG;
 
-        Toast toast = Toast.makeText(context, retval, duration);
-        toast.show();
+        // Display the result to the user! Might be either a device id
+        // or an internal error message.
+        Toast.makeText(context, retval, Toast.LENGTH_LONG).show();
     }
 
     public TestData.FeatureVector getSerializedData() {

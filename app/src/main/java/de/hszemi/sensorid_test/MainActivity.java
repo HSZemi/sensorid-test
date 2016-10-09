@@ -23,7 +23,6 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -40,9 +39,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private List<Sensor> mAllSensors;
     private Map<String, SensorData.SensorDataMessage.Builder> mLogmap;
     SharedPreferences sharedPref;
-    private int counter = -1;
-    private int numberOfLoops = 20;
-    private TextView mTextCounter;
     private EditText mEditText;
 
 
@@ -75,37 +71,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
         });
 
-
+        //we keep the Floating ActionButton for now, it might be useful later.
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if(fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {
-                    //vibrateAndRecordAcceleration(view, editText.getText().toString());
-
-//                numberOfLoops = Integer.parseInt(sharedPref.getString(SettingsActivity.KEY_NUMBER_OF_CYCLES, "20"));
-//
-//                counter = numberOfLoops*mSensors.size();
-//                mTextCounter.setText(""+counter);
-//
-//                for(int i = 0; i < numberOfLoops; i++){
-//                    int k = 0;
-//                    for (final Sensor s : mSensors) {
-//                        Handler handler = new Handler();
-//                        Log.d("handler", "Posting sensor in " + (i * mSensors.size() * 6000 + k * 6000) + "ms");
-//                        handler.postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                gatherSensorData(s, view, editText.getText().toString());
-//                            }
-//                        }, i * mSensors.size() * 6000 + k * 6000);
-//                        k++;
-//
-//                    }
-//                }
 
                     Context context = getApplicationContext();
-                    CharSequence text = "I DO NOTHING!";
+                    CharSequence text = "I AM JUST HERE FOR MY GOOD LOOKS!";
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
@@ -115,6 +89,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             });
         }
 
+
+        // we build two lists with sensors:
+        // - mAllSensors contains all available sensors,
+        // - mSensors contains the sensor types we generally select for examination
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> sensors = mSensorManager.getSensorList(Sensor.TYPE_ALL);
         for (Sensor s : sensors) {
@@ -131,26 +109,29 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+    /**
+     * Gather sensor data from a sensor for 5s and put it into mLogmap
+     * Then trigger the reporting.
+     * */
     private void gatherSensorData(final Sensor s, final View view, final String target) {
 
         Log.d("status", "I am now gathering data from: "+s.getName());
+
         if(mLogmap.containsKey(s.getName())){
-            Snackbar.make(view, "Do not doubl touch plz", Snackbar.LENGTH_LONG)
+
+            // We ALREADY gather from this sensor! Chill!
+            Snackbar.make(view, "Do not double touch please", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
+
         } else {
 
-            Context context = getApplicationContext();
-            CharSequence text = "Gathering data for 5s";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            Toast.makeText(getApplicationContext(), "Gathering data for 5s", Toast.LENGTH_SHORT).show();
 
             mLogmap.put(s.getName(), SensorData.SensorDataMessage.newBuilder().setDisplayname("DUMMY_DISPLAY_NAME").setSensorname(s.getName()));
             mSensorManager.registerListener((MainActivity) view.getContext(), s, SensorManager.SENSOR_DELAY_FASTEST);
 
             Handler handler = new Handler();
-            Log.d("status", "Handlering! "+s.getName());
+            Log.d("status", "Posting handler for "+s.getName());
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -162,10 +143,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
+    /**
+     * Take data for id from mLogmap,
+     * extract the FeatureVector,
+     * report the FeatureVector.
+     * */
     private void reportLogmap(String target, String id, String type) {
+        // Take the data from mLogmap
         SensorData.SensorDataMessage.Builder data = mLogmap.get(id);
         mLogmap.remove(id);
 
+        // Extract the FeatureVector from the data and send it to the server using the DataReporter
+        // The DataReporter will then display the server response
         SensorData.SensorDataMessage sdm = data.build();
         TestData.FeatureVector.Builder featureVector = getFeatureVector(type, id, sdm);
         DataReporter dataReporter = new DataReporter(featureVector.build(), target, getApplicationContext());
@@ -173,7 +162,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+    /**
+    * Transform the collected sensor data into a FeatureVector
+    * */
     private TestData.FeatureVector.Builder getFeatureVector(String type, String name, SensorData.SensorDataMessage sdm) {
+        // "pythonize" the data, i.e. make it a list of dicts (Maps)
         List<Map<String, Double>> data = transformSensorDataMessage(sdm);
 
         TestData.FeatureVector.Builder fv = TestData.FeatureVector.newBuilder();
@@ -220,6 +213,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+    /**
+    * Transform a SensorDataMessage into a list of Maps
+    * */
     private List<Map<String, Double>> transformSensorDataMessage(SensorData.SensorDataMessage sdm) {
         List<Map<String, Double>> data = new ArrayList<>();
 
@@ -244,14 +240,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public final void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Do something here if sensor accuracy changes.
+        // Just output the change and then ignore it
         Log.d("Sensor: ", "Accuracy changed to " + accuracy);
     }
 
     @Override
     public final void onSensorChanged(SensorEvent event) {
-        //Log.d("Values: ",event.sensor.getName()+":"+event.values[0]+"-"+event.values[1]+"-"+event.values[2]);
-        // Do something with this sensor value.
+        // Build a SensorReading object that contains the recorded sensor data
+        // and add it to the SensorDataMessage
         SensorData.SensorDataMessage.Builder builder = mLogmap.get(event.sensor.getName());
         if (builder == null) {
             Log.e("builder", "builder for " + event.sensor.getName() + " is null!");
@@ -275,17 +271,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onResume() {
         super.onResume();
-//        for (Sensor s : mAccelerometers) {
-//            mSensorManager.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
-//        }
+        // reset the target server address to the one from the settings
         if(mEditText != null){
-            mEditText.setText(sharedPref.getString(SettingsActivity.KEY_TARGET_IP_ADDRESS, "192.168.1.11"));
+            mEditText.setText(sharedPref.getString(SettingsActivity.KEY_TARGET_IP_ADDRESS, "172.16.1.100"));
         }}
 
     @Override
     protected void onPause() {
         super.onPause();
-//        mSensorManager.unregisterListener(this);
     }
 
 

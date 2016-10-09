@@ -52,6 +52,14 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/help_text"
+            android:id="@+id/textView"
+            android:layout_marginBottom="10dip" />
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
